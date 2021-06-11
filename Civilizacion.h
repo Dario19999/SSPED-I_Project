@@ -40,7 +40,19 @@ class Civilizacion {
 		void agregarAdeano_i(const Aldeano& a);
 		void agregarAdeano_f(const Aldeano & a);
 
+		void eliminarNombre(string& nombre);
+		void eliminarSalud(int x);
+		void eliminarEdad();
+
+		size_t totalAldeanos();
+		void mostrarAldeanos();
+
+		void ordenarNombre();
+		void ordenarEdad();
+		void ordenarSalud();
+
 		//Sobrecargas
+
 		friend ostream& operator<<(ostream& out, Civilizacion& c) {
 
 			out << left;

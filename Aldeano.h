@@ -21,13 +21,13 @@ class Aldeano {
 			:nombre(nombre), edad(edad), salud(salud),genero(genero) {}
 
 		void setNombre(string& nombre);
-		string getNombre();
+		string getNombre() const;
 
 		void setEdad(int edad);
-		int getEdad();
+		int getEdad() const;
 
 		void setSalud(int salud);
-		int getSalud();
+		int getSalud() const;
 
 		void setGenero(char genero);
 		char getGenero();
@@ -49,6 +49,22 @@ class Aldeano {
 			cin >> a.genero;
 
 			return in;
+		}
+
+		friend ostream& operator<<(ostream& out, Aldeano& a) {
+
+			out << left;
+			out << setw(30) << a.nombre;
+			out << setw(20) << a.edad;
+			out << setw(20) << a.salud;
+			out << setw(20) << a.genero;
+			out << endl;
+
+			return out;
+		}
+
+		bool operator<(const Aldeano& a) {
+			return nombre < a.nombre;
 		}
 };
 

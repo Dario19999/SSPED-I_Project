@@ -319,27 +319,97 @@ int main(){
 								break;
 
 							case '2':
-								do {
-									system("CLS");
-									cout << "Ingrese el numero de la opcion" << endl;
-									cout << "1.- Eliminar por Nombre" << endl;
-									cout << "2.- Eliminar Menores a X" << endl;
-									cout << "3.- Eliminar Mayores de 60" << endl;
-									cout << "s.- Salir" << endl;
-
-									cin >> opc_a;
-									switch (opc_a) {
-									case '1':
+								if (c.totalAldeanos() > 0) {
+									do {
 										system("CLS");
-										system("PAUSE");
-										break;
+										cout << "Ingrese el numero de la opcion" << endl;
+										cout << "1.- Eliminar por Nombre" << endl;
+										cout << "2.- Eliminar Aldeanos con Salud Menor a X" << endl;
+										cout << "3.- Eliminar Mayores de 60" << endl;
+										cout << "s.- Salir" << endl;
 
-									case '2':
+										cin >> opc_a;
+										switch (opc_a) {
+										case '1':
+											system("CLS");
+											cout << "Ingrese el nombre del aldeano a eliminar..." << endl;
+											cin.ignore();
+											getline(cin, nombre);
+
+											c.eliminarNombre(nombre);
+											system("PAUSE");
+											break;
+
+										case '2':
+											system("CLS");
+											cout << "Ingrese la salud limite..." << endl;
+											cin >> cant;
+
+											c.eliminarSalud(cant);
+											system("PAUSE");
+											break;
+
+										case '3':
+											system("CLS");
+											c.eliminarEdad();
+											system("PAUSE");
+											break;
+										}
+									} while (opc_a != 's');
+								}
+								else {
+									cout << "Error. No hay aldeanos..." << endl;
+								}
+								break;
+
+							case '3':
+								system("CLS");
+								if (c.totalAldeanos() > 0) {
+									do {
 										system("CLS");
-										system("PAUSE");
-										break;
-									}
-								} while (opc_a != 's');
+										cout << "Ingrese el numero de la opcion" << endl;
+										cout << "1.- Clasificar por Nombre" << endl;
+										cout << "2.- Clasificar por Edad" << endl;
+										cout << "3.- Clasificar por Salud" << endl;
+										cout << "s.- Salir" << endl;
+
+										cin >> opc_a;
+										switch (opc_a) {
+										case '1':
+											system("CLS");
+											c.ordenarNombre();
+											system("PAUSE");
+											break;
+
+										case '2':
+											system("CLS");
+											c.ordenarEdad();
+											system("PAUSE");
+											break;
+
+										case '3':
+											system("CLS");
+											c.ordenarSalud();
+											system("PAUSE");
+											break;
+										}
+									} while (opc_a != 's');
+								}
+								else {
+									cout << "Error. No hay aldeanos..." << endl;
+								}
+								system("PAUSE");
+								break;
+
+							case '6':
+								system("CLS");
+								if (c.totalAldeanos() > 0) {
+									c.mostrarAldeanos();
+								}
+								else {
+									cout << "Error. No hay aldeanos..." << endl;
+								}
+								system("PAUSE");
 								break;
 
 							}

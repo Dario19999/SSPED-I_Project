@@ -7,7 +7,7 @@ void Aldeano::setNombre(string& nombre) {
 	this->nombre = nombre;
 }
 
-string Aldeano::getNombre() {
+string Aldeano::getNombre() const {
 	return this->nombre;
 }
 
@@ -15,7 +15,7 @@ void Aldeano::setEdad(int edad) {
 	this->edad = edad;
 }
 
-int Aldeano::getEdad() {
+int Aldeano::getEdad() const {
 	return this->edad;
 }
 
@@ -23,7 +23,7 @@ void Aldeano::setSalud(int salud) {
 	this->salud = salud;
 }
 
-int Aldeano::getSalud() {
+int Aldeano::getSalud() const {
 	return this->salud;
 }
 
