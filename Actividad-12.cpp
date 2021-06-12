@@ -14,6 +14,9 @@ int main(){
 	size_t cant;
 	string nombre;
 
+	int edad, salud;
+	char genero;
+
 	float n_x;
 	float n_y;
 	int n_pts;
@@ -394,6 +397,102 @@ int main(){
 											break;
 										}
 									} while (opc_a != 's');
+								}
+								else {
+									cout << "Error. No hay aldeanos..." << endl;
+								}
+								system("PAUSE");
+								break;
+
+							case '4':
+							{
+								system("CLS");
+								cout << "Ingrese el nombre del aldeano a buscar..." << endl;
+								cin.ignore();
+								getline(cin, nombre);
+
+								Aldeano* a_b = c.buscarAldeano(nombre);
+
+								if (a_b != nullptr) {
+									cout << left;
+									cout << setw(30) << "Nombre";
+									cout << setw(20) << "Edad";
+									cout << setw(20) << "Salud";
+									cout << setw(20) << "Genero";
+									cout << endl;
+									cout << *a_b << endl;;
+								}
+								else {
+									cout << "El aldeano no existe..." << endl;
+								}
+								system("PAUSE");
+								break;
+							}
+							case '5':
+								system("CLS");
+								if (c.totalAldeanos() > 0) {
+									cout << "Ingrese el nombre del aldeano a modificar..." << endl;
+									cin.ignore();
+									getline(cin, nombre);
+									
+									Aldeano* a_m = c.buscarAldeano(nombre);
+
+									if (a_m != nullptr) {
+										do {
+											system("CLS");
+											cout << "Ingrese el numero de la opcion" << endl;
+											cout << "1.- Modificar Nombre de Aldeano" << endl;
+											cout << "2.- Modificar Edad de Aldeano" << endl;
+											cout << "3.- Modificar Salud de Aldeano" << endl;
+											cout << "4.- Modificar Genero de Aldeano" << endl;
+											cout << "s.- Salir" << endl;
+
+											cin >> opc_a;
+											switch (opc_a) {
+											case '1':
+												system("CLS");
+												cout << "Ingrese el nuevo nombre del aldeano:" << endl;
+												cin.ignore();
+												getline(cin, nombre);
+
+												a_m->setNombre(nombre);
+												system("PAUSE");
+												break;
+
+											case '2':
+												system("CLS");
+												cout << "Ingrese la nueva edad del aldeano:" << endl;
+												cin >> edad;
+
+												a_m->setEdad(edad);
+												system("PAUSE");
+												break;
+
+											case '3':
+												system("CLS");
+												cout << "Ingrese la nueva salud del aldeano:" << endl;
+												cin >> salud;
+
+												a_m->setSalud(salud);
+												system("PAUSE");
+												break;
+
+											case '4':
+												system("CLS");
+												cout << "Ingrese el nuevo genero del aldeano:" << endl;
+												cin >> genero;
+
+												a_m->setGenero(genero);
+												system("PAUSE");
+												break;
+											}
+
+										} while (opc_a != 's');
+									}
+									else {
+										cout << "El aldeano no existe..." << endl;
+									}
+									break;
 								}
 								else {
 									cout << "Error. No hay aldeanos..." << endl;

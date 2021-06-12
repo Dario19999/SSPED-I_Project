@@ -51,6 +51,7 @@ class Civilizacion {
 		void ordenarEdad();
 		void ordenarSalud();
 
+		Aldeano* buscarAldeano(string & nombre);
 		//Sobrecargas
 
 		friend ostream& operator<<(ostream& out, Civilizacion& c) {

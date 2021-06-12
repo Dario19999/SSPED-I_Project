@@ -58,7 +58,6 @@ class Aldeano {
 			out << setw(20) << a.edad;
 			out << setw(20) << a.salud;
 			out << setw(20) << a.genero;
-			out << endl;
 
 			return out;
 		}

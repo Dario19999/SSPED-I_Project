@@ -91,6 +91,17 @@ void Civilizacion::ordenarSalud() {
 	aldeanos.sort(comparadorSalud);
 }
 
+Aldeano* Civilizacion::buscarAldeano(string & nombre ) {
+	for (auto idx = aldeanos.begin(); idx != aldeanos.end(); idx++) {
+		Aldeano& a = *idx;
+		if (a.getNombre() == nombre) {
+			return &a;
+		}
+	}
+	return nullptr;
+}
+
+
 size_t Civilizacion::totalAldeanos() {
 	return aldeanos.size();
 }
