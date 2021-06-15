@@ -302,7 +302,7 @@ int main(){
 										case '1':
 											system("CLS");
 											cin >> a;
-											c.agregarAdeano_i(a);
+											c_ptr->agregarAdeano_i(a);
 											cout << "Aldeano agregado..." << endl;
 											c_ptr->setPts(100);
 											system("PAUSE");
@@ -311,7 +311,7 @@ int main(){
 										case '2':
 											system("CLS");
 											cin >> a;
-											c.agregarAdeano_f(a);
+											c_ptr->agregarAdeano_f(a);
 											cout << "Aldeano agregado..." << endl;
 											c_ptr->setPts(100);
 											system("PAUSE");
@@ -322,7 +322,7 @@ int main(){
 								break;
 
 							case '2':
-								if (c.totalAldeanos() > 0) {
+								if (c_ptr->totalAldeanos() > 0) {
 									do {
 										system("CLS");
 										cout << "Ingrese el numero de la opcion" << endl;
@@ -339,7 +339,7 @@ int main(){
 											cin.ignore();
 											getline(cin, nombre);
 
-											c.eliminarNombre(nombre);
+											c_ptr->eliminarNombre(nombre);
 											system("PAUSE");
 											break;
 
@@ -348,13 +348,13 @@ int main(){
 											cout << "Ingrese la salud limite..." << endl;
 											cin >> cant;
 
-											c.eliminarSalud(cant);
+											c_ptr->eliminarSalud(cant);
 											system("PAUSE");
 											break;
 
 										case '3':
 											system("CLS");
-											c.eliminarEdad();
+											c_ptr->eliminarEdad();
 											system("PAUSE");
 											break;
 										}
@@ -367,7 +367,7 @@ int main(){
 
 							case '3':
 								system("CLS");
-								if (c.totalAldeanos() > 0) {
+								if (c_ptr->totalAldeanos() > 0) {
 									do {
 										system("CLS");
 										cout << "Ingrese el numero de la opcion" << endl;
@@ -380,19 +380,19 @@ int main(){
 										switch (opc_a) {
 										case '1':
 											system("CLS");
-											c.ordenarNombre();
+											c_ptr->ordenarNombre();
 											system("PAUSE");
 											break;
 
 										case '2':
 											system("CLS");
-											c.ordenarEdad();
+											c_ptr->ordenarEdad();
 											system("PAUSE");
 											break;
 
 										case '3':
 											system("CLS");
-											c.ordenarSalud();
+											c_ptr->ordenarSalud();
 											system("PAUSE");
 											break;
 										}
@@ -411,7 +411,7 @@ int main(){
 								cin.ignore();
 								getline(cin, nombre);
 
-								Aldeano* a_b = c.buscarAldeano(nombre);
+								Aldeano* a_b = c_ptr->buscarAldeano(nombre);
 
 								if (a_b != nullptr) {
 									cout << left;
@@ -430,12 +430,12 @@ int main(){
 							}
 							case '5':
 								system("CLS");
-								if (c.totalAldeanos() > 0) {
+								if (c_ptr->totalAldeanos() > 0) {
 									cout << "Ingrese el nombre del aldeano a modificar..." << endl;
 									cin.ignore();
 									getline(cin, nombre);
 									
-									Aldeano* a_m = c.buscarAldeano(nombre);
+									Aldeano* a_m = c_ptr->buscarAldeano(nombre);
 
 									if (a_m != nullptr) {
 										do {
@@ -502,8 +502,8 @@ int main(){
 
 							case '6':
 								system("CLS");
-								if (c.totalAldeanos() > 0) {
-									c.mostrarAldeanos();
+								if (c_ptr->totalAldeanos() > 0) {
+									c_ptr->mostrarAldeanos();
 								}
 								else {
 									cout << "Error. No hay aldeanos..." << endl;
