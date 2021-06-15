@@ -28,6 +28,9 @@ class Videojuego {
 		size_t total();
 		Civilizacion* buscar(const string& nombre);
 
+		void respaldar();
+		void recuperar();
+
 		friend Videojuego& operator<<(Videojuego& v, const Civilizacion& c) {
 			v.agregar(c);
 			return v;

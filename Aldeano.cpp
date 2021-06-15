@@ -27,10 +27,10 @@ int Aldeano::getSalud() const {
 	return this->salud;
 }
 
-void Aldeano::setGenero(char genero) {
+void Aldeano::setGenero(string genero) {
 	this->genero = genero;
 }
 
-char Aldeano::getGenero() {
+string Aldeano::getGenero() {
 	return this->genero;
 }

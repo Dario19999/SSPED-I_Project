@@ -150,3 +150,55 @@ void Videojuego::resumen() {
 	}
 
 }
+
+void Videojuego::respaldar() {
+
+	ofstream civsF("civilizaciones.txt", ios::app);
+
+	for (int i = 0; i < civs.size(); i++) {
+		Civilizacion& c = civs[i];
+
+		civsF << c.getNombre() << endl;
+		civsF << c.getX() << endl;
+		civsF << c.getY() << endl;
+		civsF << c.getPts() << endl;
+
+		c.respaldarAldeanos();
+	}
+
+	civsF.close();
+}
+
+void Videojuego::recuperar() {
+	ifstream civsF("civilizaciones.txt");
+
+	if (civsF.is_open()) {
+		string t_s;
+
+		while (true) {
+			Civilizacion c;
+
+			getline(civsF, t_s);
+			if (civsF.eof()) {
+				break;
+			}
+			c.setNombre(t_s);
+
+			getline(civsF, t_s);
+			c.setX(stof(t_s));
+
+			getline(civsF, t_s);
+			c.setY(stof(t_s));
+
+			getline(civsF, t_s);
+			c.setPtsF(stoi(t_s, nullptr, 10));
+			
+			c.recuperarAldeanos();
+
+			civs.push_back(c);
+
+		}
+
+
+	}
+}

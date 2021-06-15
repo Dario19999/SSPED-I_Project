@@ -12,13 +12,13 @@ class Aldeano {
 		string nombre;
 		int edad;
 		int salud;
-		char genero;
+		string genero;
 
 	public:
 
 		Aldeano();
-		Aldeano(string &nombre, int edad, int salud, char genero)
-			:nombre(nombre), edad(edad), salud(salud),genero(genero) {}
+		Aldeano(string &nombre, int edad, int salud, string genero)
+			:nombre(nombre), edad(edad), salud(salud), genero(genero) {}
 
 		void setNombre(string& nombre);
 		string getNombre() const;
@@ -29,8 +29,8 @@ class Aldeano {
 		void setSalud(int salud);
 		int getSalud() const;
 
-		void setGenero(char genero);
-		char getGenero();
+		void setGenero(string genero);
+		string getGenero();
 
 		friend istream& operator>>(istream& in, Aldeano& a) {
 

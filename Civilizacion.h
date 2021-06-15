@@ -7,6 +7,7 @@
 #include <string>
 #include <iomanip>
 #include <list>
+#include <fstream>
 
 using namespace std;
 
@@ -35,6 +36,8 @@ class Civilizacion {
 		void setPts(int pts);
 		int getPts();
 
+		void setPtsF(int pts);
+
 		//Metodos para aldeanos
 
 		void agregarAdeano_i(const Aldeano& a);
@@ -52,6 +55,10 @@ class Civilizacion {
 		void ordenarSalud();
 
 		Aldeano* buscarAldeano(string & nombre);
+
+		void respaldarAldeanos();
+		void recuperarAldeanos();
+
 		//Sobrecargas
 
 		friend ostream& operator<<(ostream& out, Civilizacion& c) {

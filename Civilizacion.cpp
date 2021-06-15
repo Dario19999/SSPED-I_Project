@@ -37,6 +37,10 @@ void Civilizacion::setPts(int pts) {
 	this->pts += pts;
 }
 
+void Civilizacion::setPtsF(int pts) {
+	this->pts = pts;
+}
+
 int Civilizacion::getPts() {
 	return this->pts;
 }
@@ -116,4 +120,51 @@ void Civilizacion::mostrarAldeanos() {
 	for (auto idx = aldeanos.begin(); idx != aldeanos.end(); idx++) {
 		cout << *idx << endl;
 	}
+}
+
+void Civilizacion::respaldarAldeanos() {
+
+	ofstream aldeanosF(getNombre() + ".txt", ios::out);
+
+	for (auto idx = aldeanos.begin(); idx != aldeanos.end(); idx++) {
+		Aldeano& a = *idx;
+		aldeanosF << a.getNombre() << endl;
+		aldeanosF << a.getEdad() << endl;
+		aldeanosF << a.getSalud() << endl;
+		aldeanosF << a.getGenero() << endl;
+	}
+
+	aldeanosF.close();
+}
+
+void Civilizacion::recuperarAldeanos() {
+	ifstream aldeanosF(getNombre() + ".txt");
+
+	if (aldeanosF.is_open()) {
+
+		string s_t;
+		Aldeano a;
+
+		while (true) {
+
+			getline(aldeanosF, s_t);
+			if (aldeanosF.eof()) {
+				break;
+			}
+			a.setNombre(s_t);
+
+			getline(aldeanosF, s_t);
+			a.setEdad(stoi(s_t, nullptr, 10));
+
+			getline(aldeanosF, s_t);
+			a.setSalud(stoi(s_t, nullptr, 10));
+
+			getline(aldeanosF, s_t);
+			a.setGenero(s_t);
+
+			this->agregarAdeano_f(a);
+		}
+
+	}
+
 }

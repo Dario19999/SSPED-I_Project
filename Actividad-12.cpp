@@ -4,7 +4,8 @@
 #include <iostream>
 #include "Videojuego.h"
 
-int main(){
+int main()
+{
 
 	char opc = '\0';
 	char opc_a = '\0';
@@ -15,7 +16,7 @@ int main(){
 	string nombre;
 
 	int edad, salud;
-	char genero;
+	string genero;
 
 	float n_x;
 	float n_y;
@@ -39,6 +40,8 @@ int main(){
 		cout << "9.- Buscar" << endl;
 		cout << "a.- Modificar" << endl;
 		cout << "b.- Resumen" << endl;
+		cout << "w.- Respaldar Civilizaciones" << endl;
+		cout << "r.- Recuperar Civilizaciones" << endl;
 		cout << "s.- Salir" << endl;
 
 		cin >> opc;
@@ -510,7 +513,6 @@ int main(){
 								}
 								system("PAUSE");
 								break;
-
 							}
 						} while (opc_c != 's');
 					}
@@ -520,6 +522,23 @@ int main(){
 					system("PAUSE");
 				}
 				break;
+
+				case 'w':
+					system("CLS");
+					if (v.total() > 0) {
+						v.respaldar();
+					}
+					else {
+						cout << "Error. El vector esta vacio..." << endl;
+					}
+					system("PAUSE");
+					break;
+
+				case 'r':
+					system("CLS");
+					v.recuperar();
+					system("PAUSE");
+					break;
 		}
 
 	} while (opc != 's');
