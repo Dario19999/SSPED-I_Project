@@ -153,7 +153,7 @@ void Videojuego::resumen() {
 
 void Videojuego::respaldar() {
 
-	ofstream civsF("civilizaciones.txt", ios::app);
+	ofstream civsF("civilizaciones.txt", ios::out);
 
 	for (int i = 0; i < civs.size(); i++) {
 		Civilizacion& c = civs[i];
@@ -198,7 +198,5 @@ void Videojuego::recuperar() {
 			civs.push_back(c);
 
 		}
-
-
 	}
 }
