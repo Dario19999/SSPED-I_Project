@@ -141,12 +141,16 @@
   <ItemGroup>
     <ClCompile Include="Actividad-12.cpp" />
     <ClCompile Include="Aldeano.cpp" />
+    <ClCompile Include="Barco.cpp" />
     <ClCompile Include="Civilizacion.cpp" />
+    <ClCompile Include="Guerrero.cpp" />
     <ClCompile Include="Videojuego.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Aldeano.h" />
+    <ClInclude Include="Barco.h" />
     <ClInclude Include="Civilizacion.h" />
+    <ClInclude Include="Guerrero.h" />
     <ClInclude Include="Videojuego.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

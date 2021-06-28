@@ -168,3 +168,85 @@ void Civilizacion::recuperarAldeanos() {
 	}
 
 }
+
+//metodos para barcos
+
+void Civilizacion::agregarBarco(Barco* b) {
+	flota.push_back(b);
+}
+
+void Civilizacion::capturarBarco() {
+
+	size_t id;
+	float combustible;
+
+	Barco* b = new Barco();
+
+	cout << "Ingrese el ID: ";
+	cin >> id;
+
+	cout << "Ingrese el combustible: ";
+	cin >> combustible;
+
+	b->setId(id);
+	b->setCombustible(combustible);
+	b->setArmadura(100);
+	b->setVelocidad(0.0);
+
+	agregarBarco(b);
+}
+
+void Civilizacion::mostrarFlota() {
+	cout << left;
+	cout << setw(10) << "ID";
+	cout << setw(20) << "Combustible";
+	cout << setw(20) << "Armadura";
+	cout << setw(20) << "Velocidad";
+	cout << setw(20) << "Guerreros Abordo";
+	cout << endl;
+
+	for (auto const& b : flota) {
+		cout << *b << endl;
+	}
+}
+
+Barco* Civilizacion::buscarBarco(size_t id) {
+	for (auto const& b : flota) {
+		if (b->getId() == id) {
+			return b;
+		}
+	}
+	return nullptr;
+}
+
+size_t Civilizacion::totalBarcos() {
+	return flota.size();
+}
+
+void Civilizacion::eliminarBarco_id(size_t id) {
+
+	flota.remove_if([id](const Barco* b) {
+		if (b->getId() == id) {
+			delete b;
+			return true;
+		}
+		else {
+			return false;
+		}
+	});
+
+	cout << "El barco con id " << id << " ha sido eliminado..." << endl;
+}
+
+void Civilizacion::eliminarBarco_comb(float combustible) {
+	flota.remove_if([combustible](const Barco* b) { 
+		if (b->getCombustible() < combustible) {
+			delete b;
+			return true;
+		}
+		else {
+			return false;
+		}
+	});
+	cout << "Los barcos con combustible menor a " << combustible << " han sido eliminados..." << endl;
+}

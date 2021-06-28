@@ -1,2 +1,8 @@
 ﻿  Actividad-12.cpp
+  Barco.cpp
+  Civilizacion.cpp
+  Guerrero.cpp
+  Videojuego.cpp
+D:\CUCEI\3ro\SSPED-I\Actividad-12\Videojuego.cpp(158,20): warning C4018: '<': no coinciden signed/unsigned
+  Generando código...
   Actividad-12.vcxproj -> D:\CUCEI\3ro\SSPED-I\Actividad-12\Debug\Actividad-12.exe

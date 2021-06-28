@@ -2,6 +2,7 @@
 #define CIVILIZACION_H
 
 #include "Aldeano.h"
+#include "Barco.h"
 
 #include <iostream>
 #include <string>
@@ -16,7 +17,9 @@ class Civilizacion {
 	float x;
 	float y;
 	int pts;
+	
 	list<Aldeano> aldeanos;
+	list<Barco*> flota;
 
 	public:
 		//Metodos para civilizacion
@@ -58,6 +61,16 @@ class Civilizacion {
 
 		void respaldarAldeanos();
 		void recuperarAldeanos();
+
+		//Metodos para barcos
+
+		void agregarBarco(Barco* b);
+		void capturarBarco();
+		void mostrarFlota();
+		Barco* buscarBarco(size_t id);
+		void eliminarBarco_id(size_t id);
+		void eliminarBarco_comb(float combustible);
+		size_t totalBarcos();
 
 		//Sobrecargas
 
